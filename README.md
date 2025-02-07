@@ -1,8 +1,19 @@
-# React + Vite
+Word Wrap 🔠
+A word-guessing game where players select letters to uncover the hidden word within 9 attempts!
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+How to Play 🎮
+-The game selects a secret word.
+-The player guesses one letter at a time.
+-If the letter is in the word, it gets revealed in the correct position(s).
+-If the letter is not in the word, the player loses one attempt.
+-The game continues until the player:
+   Guesses the full word ✅
+   Runs out of 9 attempts ❌
 
-Currently, two official plugins are available:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Features ✨
+-🏆 9 attempts to guess the word
+-🔤 Letter-by-letter guessing
+-🎨 Displayed word updates with correct guesses
+-❌ Incorrect guesses reduce attempts
+-🔄 Replay option
