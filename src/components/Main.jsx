@@ -136,7 +136,7 @@ const Main = () => {
         <GameStatus />
       </section>
       <section className="chips">{chipsElement}</section>
-      <section className="word">{wordletters}</section>npm
+      <section className="word">{wordletters}</section>
       <section className="alphabets">{alphabetletter}</section>
       <section className={sectionclass}></section>
       {isGameOver && (
