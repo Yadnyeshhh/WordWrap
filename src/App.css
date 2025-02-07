@@ -1,0 +1,429 @@
+body {
+  background-color: #282826;
+  color: aliceblue;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+.main {
+  display: flex;
+  position: relative; /* Needed for absolute positioning of ::before */
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: 15px;
+  box-shadow: -4px 0px 6px rgba(255, 254, 254, 0.2),
+    4px 0px 6px rgba(255, 255, 255, 0.2);
+  width: 100%; /* Ensure it takes the desired width */
+  height: 100vh; /* Adjust as needed */
+}
+
+.main::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: url(./assets-WordWrap/wordgame.webp) center/cover no-repeat;
+  background-size: 150%;
+  opacity: 0.5; /* Adjust opacity here */
+  z-index: -1; /* Keeps it behind content */
+}
+
+header {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  color: aliceblue;
+  margin-top: 20px;
+}
+
+header h1 {
+  margin-bottom: 5px;
+  font-family: "Bangers", serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 3rem;
+}
+.game-status {
+  min-height: 80px;
+}
+
+.won {
+  width: 500px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  background-color: rgb(77, 225, 136);
+}
+.won p,
+.won h2 {
+  margin: 0px;
+  display: flex;
+  justify-content: center;
+}
+
+.won h2 {
+  margin-top: 5px;
+}
+.won p {
+  margin-bottom: 5px;
+}
+
+.lost {
+  width: 500px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  background-color: rgb(225, 77, 77);
+}
+.lost p,
+.lost h2 {
+  margin: 0px;
+  display: flex;
+  justify-content: center;
+}
+
+.lost h2 {
+  margin-top: 5px;
+}
+.lost p {
+  margin-bottom: 5px;
+}
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 20px;
+  max-width: 500px;
+  justify-content: center;
+}
+.chip {
+  margin: 3px;
+  margin-top: 5px;
+  margin-bottom: 10px;
+  margin-left: 5px;
+  margin-right: 5px;
+  padding: 5px;
+  border-radius: 3px;
+  min-width: 80px;
+  text-align: center;
+  height: 30px;
+  cursor: pointer;
+  transition: transform 0.3s;
+  font-size: 1.5rem;
+}
+.chip:hover {
+  transform: scale(1, 1.2);
+}
+
+.chip-lost {
+  margin: 3px;
+  margin-top: 5px;
+  margin-bottom: 10px;
+  margin-left: 5px;
+  margin-right: 5px;
+  padding: 5px;
+  border-radius: 3px;
+  min-width: 80px;
+  text-align: center;
+  height: 30px;
+  /* cursor: pointer; */
+  /* transition: transform 0.3s; */
+  opacity: 0.3;
+  text-decoration: line-through;
+}
+
+.word {
+  display: flex;
+  gap: 2px;
+  margin-top: 10px;
+  margin-top: 10px;
+}
+.letter {
+  height: 50px;
+  width: 50px;
+  margin: 10px;
+  background-color: #434240;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
+  border-bottom: white solid 1px;
+  /* text-align: center; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+}
+.alphabets {
+  margin-top: 15px;
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 800px;
+  justify-content: center;
+  align-items: center;
+  gap: 3px;
+}
+.alphabets button {
+  height: 55px;
+  width: 55px;
+  margin: 5px;
+  font-size: 1.5rem;
+  cursor: pointer;
+  background-color: rgb(92, 169, 169);
+  border-radius: 10px;
+  transition: transform, 0.2s;
+}
+
+.alphabets button:hover {
+  background-color: rgb(197, 253, 253);
+  transform: scale(1, 1.2);
+}
+
+.alphabets-correct {
+  background-color: #10a95b !important;
+}
+.alphabets-correct:hover {
+  transform: scale(1, 1) !important;
+  cursor: default;
+}
+.alphabets-wrong {
+  background-color: #ec5d49 !important;
+}
+.alphabets-wrong:hover {
+  transform: scale(1, 1) !important;
+  cursor: default;
+}
+.nonewgame {
+  min-height: 75px;
+}
+
+.newgame {
+  background-color: #2897b9;
+  /* box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3) !; */
+  border: 1px solid #d7d7d7;
+  border-radius: 4px;
+  width: 255px;
+  font-size: 1.7rem;
+  height: 45px;
+  padding: 6px 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  margin-top: 20px;
+  transition: 0.2s;
+  margin-bottom: 10px;
+}
+.newgame:hover {
+  background-color: #7ad8f4;
+}
+
+@media screen and (max-width: 900px) {
+  body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    /* overflow: hidden; */
+  }
+  .main {
+    display: flex;
+    position: relative;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    margin: 0px;
+    /* margin-top: 15px; */
+
+    width: 100%; /* Ensure it takes the desired width */
+    height: 100%; /* Adjust as needed */
+  }
+  .main::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: url(./assets/wordgame.webp) center/cover no-repeat;
+    background-position: center;
+    /* background-size: 150%; */
+    opacity: 0.5; /* Adjust opacity here */
+    z-index: -1; /* Keeps it behind content */
+  }
+
+  .chips {
+    max-width: 90%; /* Let chips container take up full width */
+    flex-direction: row;
+    align-items: center; /* Center chips */
+  }
+
+  .chip {
+    min-width: 60px; /* Smaller chip size */
+    margin: 5px;
+    height: 20px;
+    font-size: 1rem;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .word {
+    flex-wrap: nowrap; /* Wrap letters if needed */
+  }
+
+  .letter {
+    width: 40px; /* Smaller letters for smaller screens */
+    height: 50px;
+    font-size: 1.5rem;
+  }
+
+  .alphabets {
+    max-width: 100%; /* Full width for alphabet buttons */
+    flex-wrap: wrap;
+  }
+
+  .alphabets button {
+    width: 45px; /* Smaller buttons */
+    height: 45px;
+    font-size: 1.2rem;
+  }
+
+  .newgame {
+    width: 200px; /* Smaller button for smaller screens */
+    font-size: 1.5rem;
+  }
+}
+
+/* For screens smaller than 600px */
+@media screen and (max-width: 610px) {
+  body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    overflow: hidden;
+  }
+  .main {
+    width: 100%; /* Even smaller width */
+    height: 100vh; /* Let the height adjust based on content */
+    margin: 0px;
+  }
+  .main::before {
+    height: 100vh;
+  }
+
+  .header h1 {
+    font-size: 1rem; /* Smaller header text */
+    margin: 0px;
+    padding: 1px;
+  }
+  .game-status {
+    min-height: 50px;
+    width: 70%;
+  }
+  .won,
+  .lost {
+    width: 70%;
+  }
+
+  .won h2,
+  .lost h2 {
+    font-size: 1.2rem;
+  }
+  .won p,
+  .lost p {
+    font-size: 0.8rem;
+  }
+  .chips {
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-bottom: 0px;
+  }
+
+  .chip {
+    min-width: 50px;
+    font-size: 0.8rem;
+    height: 1rem;
+  }
+  .chip-lost {
+    min-width: 50px;
+    font-size: 0.8rem;
+    height: 1rem;
+  }
+  .word {
+    flex-wrap: nowrap;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    margin-top: 0px;
+    gap: 10px;
+  }
+
+  .letter {
+    width: 30px;
+    height: 30px;
+    font-size: 1.2rem;
+    margin: 0px;
+  }
+
+  .alphabets button {
+    width: 30px;
+    height: 30px;
+    font-size: 1rem;
+  }
+
+  .nonewgame {
+    min-height: 2rem;
+  }
+
+  .newgame {
+    width: 180px;
+    font-size: 1.3rem;
+  }
+}
+@media screen and (max-width: 305px) {
+  body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    overflow: hidden;
+  }
+
+  .main header {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+  }
+  header {
+    text-wrap: nowrap;
+  }
+  .main header h1 {
+    font-size: 1.5rem;
+  }
+  .main header p {
+    font-size: 0.8rem;
+    margin: 0px;
+  }
+  .word {
+    flex-wrap: nowrap;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    margin-top: 0px;
+    gap: 8px;
+  }
+  .letter {
+    width: 25px;
+    height: 25px;
+    font-size: 1rem;
+    margin: 0px;
+  }
+}
